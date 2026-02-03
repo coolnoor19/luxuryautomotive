@@ -1,7 +1,9 @@
 import express from "express"
-
+import connectDb from "./config/db.js"
+import dotenv from "dotenv"
 const app = express()
 
+dotenv.config()
 app.use(express.json())
 
 app.get("/" , (req, res)=>{
@@ -11,5 +13,6 @@ app.get("/" , (req, res)=>{
 })
 
 app.listen( 4001 , ()=>{
+    connectDb()
     console.log(" server is running on prot 4001")
 })
